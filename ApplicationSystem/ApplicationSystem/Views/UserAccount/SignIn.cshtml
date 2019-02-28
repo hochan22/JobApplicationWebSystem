@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="modal-header">
+    <h2 style="color:darkblue">Sign In</h2>
+</div>
+<div>
+    
+    <p>
+        <div>
+            @Html.ActionLink("Sign In as a candidate", "SignInCandidate", "UserAccount", new { @class = "btn btn-primary" })
+        </div>
+    </p>
+
+    <p>
+        <div>
+            @Html.ActionLink("Sign In as a hiring manager", "SignInHiringManager", "UserAccount", new { @class = "btn btn-primary" })
+        </div>
+    </p>
+</div>
+
+
+

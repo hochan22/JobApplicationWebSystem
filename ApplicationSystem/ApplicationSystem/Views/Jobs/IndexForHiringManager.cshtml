@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ApplicationSystem.Models.Job>
+
+@{
+    ViewBag.Title = "Jobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Job List</h2>
+<p>
+    @Html.ActionLink("Post New Job", "New", "Jobs", new { @class = "btn btn-primary" })
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by Name: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+<div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink("Jobs Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.LocationSortParm })
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var job in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(job.Name, "Details", "Jobs", new { id = job.Id }, null)</td>
+                    <td>@job.Location</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

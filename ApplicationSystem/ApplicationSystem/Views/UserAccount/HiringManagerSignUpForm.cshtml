@@ -1,0 +1,35 @@
+﻿@model ApplicationSystem.Models.HiringManager
+@{
+    ViewBag.Title = "HiringManagerSignUpForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sign Up Form</h2>
+<div>
+    @using (Html.BeginForm("Save", "HiringManagers"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(hm => hm.Email)
+            @Html.TextBoxFor(hm => hm.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(hm => hm.Password)
+            @Html.TextBoxFor(hm => hm.Password, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(hm => hm.Name)
+            @Html.TextBoxFor(hm => hm.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(hm => hm.Code)
+            @Html.TextBoxFor(hm => hm.Code, new { @class = "form-control" })
+        </div>
+        
+
+        @Html.HiddenFor(hm => hm.Id)
+        <button type="submit" class="btn btn-success">
+            Save
+        </button>
+    }
+</div>
+

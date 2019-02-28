@@ -1,0 +1,15 @@
+﻿@model ApplicationSystem.Models.Job
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Job Detail</h2>
+<h4>@Model.Name</h4>
+<ul>
+    <li>Job Location: @Model.Location</li>
+    <li>Job Duration In Month: @Model.DurationInMonths</li>
+    <li>Job Degree Requirement: @Model.Degree.Name</li>
+    <li>Job Discription: @Model.Discription</li>
+</ul>
+

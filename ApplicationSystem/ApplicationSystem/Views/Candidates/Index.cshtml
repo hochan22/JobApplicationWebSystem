@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ApplicationSystem.Models.Candidate>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Candidates</h2>
+<div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Candidates</th>
+                <th>Univeristy</th>
+                <th>Major</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var candidate in Model)
+            {
+                <tr>
+                    <td>@candidate.Name</td>
+                    <td>@candidate.University</td>
+                    <td>@candidate.Major</td>
+                    
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

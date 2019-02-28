@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "CandidateAppliedBefore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h5>You Have Applied this Job Before.</h5>
+<h5>Please search for other job to apply.</h5>
+@Html.ActionLink("Search New Job", "Index", "Jobs", new { @class = "btn btn-primary"})
+

@@ -1,0 +1,26 @@
+﻿@model ApplicationSystem.Models.HiringManager
+@{
+    ViewBag.Title = "HiringManagerSignInForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:darkblue">Sign In Form</h2>
+
+<div>
+    @using (Html.BeginForm("Check", "HiringManagers"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(hm => hm.Email)
+            @Html.TextBoxFor(hm => hm.Email, new { @class = "form-control"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(hm => hm.Password)
+            @Html.TextBoxFor(hm => hm.Password, new { @class = "form-control" })
+        </div>
+       
+
+        <button type="submit" class="btn btn-success">
+            Sign In
+        </button>
+    }
+</div>

@@ -1,0 +1,39 @@
+﻿@model ApplicationSystem.ViewModels.MessageViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+
+<h2>Messages</h2>
+<p>
+@Html.ActionLink("New Message", "New", "Messages", new { @class="btn btn-primary"})
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Message Sender</th>
+            <th>Message Receiver</th>
+            <th>Message Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var message in Model.SentMessages)
+        {
+            <tr>
+                <td>Me</td>
+                <td>@message.Receiver</td>
+                <td>@message.Content</td>
+            </tr>
+        }
+        @foreach (var message in Model.ReceivedMessages)
+        {
+            <tr>
+                <td>@message.Sender</td>
+                <td>Me</td>
+                <td>@message.Content</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

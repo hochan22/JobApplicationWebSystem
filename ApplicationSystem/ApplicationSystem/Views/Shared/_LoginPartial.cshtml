@@ -1,0 +1,39 @@
+﻿@using ApplicationSystem.Models
+
+@if (Session["logined"] == null || (bool)Session["logined"] == false)
+{
+    <!--
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", class = "navbar-right" }))
+    {
+    //Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            //Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+    }
+        -->
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "SignUp", "UserAccount", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Sign in", "SignIn", "UserAccount", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+    
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right" style="color:aliceblue">
+        @if(Int32.Parse(Session["userPrivilege"].ToString()) == 1)
+        {
+            <li>@Html.ActionLink(Session["userName"].ToString(), "Details", "Candidates", new { id = Int32.Parse(Session["id"].ToString()) }, null)</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink(Session["userName"].ToString(), "Index", "Home", new { id = Int32.Parse(Session["id"].ToString()) }, null)</li>
+        }
+            
+        <li>@Html.ActionLink("Log Off", "LogOff", "UserAccount", routeValues: null, htmlAttributes: new { id = "LogOffLink" })</li>
+        
+    </ul>
+}

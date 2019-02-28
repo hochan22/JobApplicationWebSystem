@@ -1,0 +1,23 @@
+﻿@model ApplicationSystem.ViewModels.CandidateCheckOneJobViewModel
+@{
+                
+
+                ViewBag.Title = "Details";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Job Detail</h2>
+<h4>@Model.Job.Name</h4>
+<ul>
+    <li>Job Location: @Model.Job.Location</li>
+    <li>Job Duration In Month: @Model.Job.DurationInMonths</li>
+    <li>Job Degree Requirement: @Model.Job.Degree.Name</li>
+    <li>Job Discription: @Model.Job.Discription</li>
+</ul>
+
+<h4>Your Status:</h4>
+<p>@Model.Status</p>
+
+<p>
+    @Html.ActionLink("Apply", "FileUpload", "ResumeFiles", null, new { @class = "btn btn-primary" })
+</p>

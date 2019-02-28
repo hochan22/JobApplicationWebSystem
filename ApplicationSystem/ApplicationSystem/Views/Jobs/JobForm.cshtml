@@ -1,0 +1,43 @@
+﻿@model ApplicationSystem.ViewModels.JobFormViewModel
+@{
+    ViewBag.Title = "JobForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Job Form</h2>
+
+<div>
+    @using (Html.BeginForm("Save", "Jobs"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(j => j.Job.Name)
+            @Html.TextBoxFor(j => j.Job.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(job => job.Job.Location)
+            @Html.TextBoxFor(job => job.Job.Location, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(job => job.Job.DurationInMonths)
+            @Html.TextBoxFor(job => job.Job.DurationInMonths, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(job => job.Job.Discription)
+            @Html.TextAreaFor(job => job.Job.Discription, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(job => job.Job.DegreeId)
+            @Html.DropDownListFor(job => job.Job.DegreeId, new SelectList(Model.Degrees, "Id", "Name"), "Select Degree", new { @class = "form-control" })
+        </div>
+
+        @Html.HiddenFor(j => j.Job.Id)
+        <button type="submit" class="btn btn-success">
+            Save
+        </button>
+    }
+</div>
+

@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "EmailExisted";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>This Email is Existed, Please Try Another Email Address.</h2>
+@Html.ActionLink("Return Sign Up", "SignUp", "UserAccount", null, new { @class = "btn btn-info"})
+

@@ -1,0 +1,23 @@
+﻿@model ApplicationSystem.Models.NotesViewModel
+@{
+    ViewBag.Title = "NoteForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Note Form</h2>
+<div>
+    @using (Html.BeginForm("SaveNote", "Candidates"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(c => c.Note)
+            @Html.TextAreaFor(c => c.Note, new { @class = "form-control" })
+        </div>
+
+
+        @Html.HiddenFor(c => c.Id)
+        <button type="submit" class="btn btn-success">
+            Save
+        </button>
+    }
+</div>
+

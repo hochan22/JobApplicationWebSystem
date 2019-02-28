@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "InvalidFileWarning";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>The File Format is Invalid.</h2>
+<h2>Please Resubmit a New File.</h2>
+@Html.ActionLink("Resubmit", "FileUpload", "ResumeFiles", new { @class = "btn btn-primary"})
+

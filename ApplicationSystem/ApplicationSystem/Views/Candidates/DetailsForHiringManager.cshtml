@@ -1,0 +1,43 @@
+﻿@model ApplicationSystem.ViewModels.CandidatesDetailViewModel
+@{
+    ViewBag.Title = "DetailsForHiringManager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Candidate Information</h2>
+<h4>@Model.Candidate.Name</h4>
+<ul>
+    <li>University: @Model.Candidate.University</li>
+    <li>Major: @Model.Candidate.Major</li>
+    <li>Degree: @Model.Candidate.Degree.Name</li>
+
+</ul>
+<p>
+    @Html.ActionLink("New Notes", "AddNotes", "Candidates", new { id = @Model.Candidate.Id }, new { @class = "btn btn-primary" })
+</p>
+
+<div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Notes</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Notes != null)
+            {
+                foreach (var note in Model.Notes)
+                {
+                    <tr>
+                        <td>@note</td>
+
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+
+

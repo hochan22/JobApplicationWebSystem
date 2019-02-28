@@ -1,0 +1,16 @@
+﻿@model ApplicationSystem.Models.Candidate
+@{
+    ViewBag.Title = "DetailsForCandidate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Candidate Information</h2>
+<h4>@Model.Name</h4>
+<ul>
+    <li>University: @Model.University</li>
+    <li>Major: @Model.Major</li>
+    <li>Degree: @Model.Degree.Name</li>
+    
+</ul>
+@Html.ActionLink("Edit", "Edit", "Candidates", new { id = @Model.Id }, new { @class = "btn btn-primary" })
+

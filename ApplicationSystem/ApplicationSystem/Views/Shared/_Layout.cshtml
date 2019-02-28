@@ -1,0 +1,45 @@
+﻿@using ApplicationSystem.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - HCx</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    
+    @if (Session["userPrivilege"] == null)
+    {
+        @Html.Partial("GuestNavBar")
+    }
+    else if (Int32.Parse(Session["userPrivilege"].ToString()) == 2)
+    {
+    @Html.Partial("HiringManagerNavBar")
+    }
+    else if (Int32.Parse(Session["userPrivilege"].ToString()) == 1)
+    {
+    @Html.Partial("CandidateNavBar")
+    }
+    else
+    {
+    @Html.Partial("GuestNavBar")
+    }
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - HCx  
+                
+            </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿@model ApplicationSystem.Models.Message
+@{
+    ViewBag.Title = "MessageForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Message</h2>
+<div>
+    @using (Html.BeginForm("Save", "Messages"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Receiver)
+            @Html.TextBoxFor(m => m.Receiver, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Content)
+            @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-success">
+            Send
+        </button>
+    }
+</div>
+

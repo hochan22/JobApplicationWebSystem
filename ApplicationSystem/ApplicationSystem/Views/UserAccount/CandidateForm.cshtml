@@ -1,0 +1,39 @@
+﻿@model ApplicationSystem.ViewModels.CandidateSignUpFormViewModel
+@{
+    ViewBag.Title = "CandidateFormViewModel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Application</h2>
+
+
+<div>
+    @using (Html.BeginForm("Save", "Candidates"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(c => c.Candidate.Name)
+            @Html.TextBoxFor(c => c.Candidate.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(candidate => candidate.Candidate.University)
+            @Html.TextBoxFor(candidate => candidate.Candidate.University, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(c => c.Candidate.Major)
+            @Html.TextBoxFor(c => c.Candidate.Major, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(c => c.Candidate.DegreeId)
+            @Html.DropDownListFor(c => c.Candidate.DegreeId, new SelectList(Model.Degrees, "Id", "Name"), "Select Degree", new { @class = "form-control" })
+        </div>
+
+        @Html.HiddenFor(c => c.Candidate.Id)
+        <button type="submit" class="btn btn-success">
+            Save
+        </button>
+    }
+</div>
+

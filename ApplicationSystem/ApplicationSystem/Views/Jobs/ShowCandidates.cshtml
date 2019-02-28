@@ -1,0 +1,42 @@
+﻿@model ApplicationSystem.ViewModels.JobCandidatesViewModel
+@{
+    ViewBag.Title = "ShowCandidates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Candidates</h2>
+<div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Candidate Name</th>
+                <th>University</th>
+                <th>Major</th>
+                <th>Resume</th>
+                <th>@Html.ActionLink("Status", "ShowCandidates", new { sortOrder = ViewBag.StatusSortParm })</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(int i = 0; i < Model.Candidates.Count(); i++)
+            {
+            <tr>
+                <td>@Html.ActionLink(Model.Candidates.ElementAt(i).Name, "Details", "Candidates", new { id = @Model.Candidates.ElementAt(i).Id }, null)</td>
+                <td>@Model.Candidates.ElementAt(i).University</td>
+                <td>@Model.Candidates.ElementAt(i).Major</td>
+                <td>@Html.ActionLink("Resume", "DisplayResumePdf", "Candidates", new { rid = @Model.ResumeIds.ElementAt(i)}, null)</td>
+                @if (@Model.Status.ElementAt(i).Equals("Rejected") == true)
+                {
+                    <td>@Model.Status.ElementAt(i)</td>
+                }
+                else
+                {
+                    <td>@Model.Status.ElementAt(i) @Html.ActionLink("<Next Step>", "ChangeStatus", "Jobs", new { cid = @Model.Candidates.ElementAt(i).Id }, null) @Html.ActionLink("<Reject>", "RejectCandidate", "Jobs", new { cid = @Model.Candidates.ElementAt(i).Id }, null)</td>
+                }
+                
+
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

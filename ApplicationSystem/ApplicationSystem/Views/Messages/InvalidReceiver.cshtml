@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "InvalidReceiver";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>The receiver is not found, please check and send again.</h2>
+@Html.ActionLink("Send Again", "New", "Messages", new { @class = "btn btn-primary"})
+
